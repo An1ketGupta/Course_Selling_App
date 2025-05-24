@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+   background-color: black; 
+   height: auto;
+   scroll-behavior: smooth;
+}
+
+#signin-box{
+    color: white;
+    background-color: #3d3d3d;
+    height: 350px;
+    width: 600px;
+    border-radius: 20px;
+    margin-left: 450px;
+    margin-top: 200px;
+}
+
+.signin-button{
+    width: 298px;  
+    height: 40px;
+    border-radius: 20px;
+}
