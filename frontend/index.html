@@ -4,10 +4,31 @@
        Couse Selling app 
     </title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exile&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <body>
-        <div id="signin-box">
-            <button class="signin-button" id="user-button" onclick="">I am a User</button>
-            <button class="signin-button" id="admin-button" onclick="">I am an Admin</button>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="./script.js"></script>
+        <div id="signin-box" style="display: block;">
+            <div id="buttons">
+                <button class="choose-button" id="user-button" onclick="show_signup('u')">I am a User</button>
+                <button class="choose-button" id="admin-button" onclick="show_signup('a')">I am an Admin</button>
+            </div>
+            <div id="details" style="margin-top: 10px;">
+                <div><input class="inputs" id="name-input" type="text" placeholder="Enter your name"></div>
+                <div><input class="inputs" id="email-input" type="text" placeholder="Enter your E-mail address"></div>
+                <div><input class="inputs" id="password-input" type="text" placeholder="Enter your password"></div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 10px;">
+                <button class="signin-button " onclick="signup()">Signup</button>
+                <button class="signin-button" onclick="signin()">Signin</button>
+            </div>
+            <div style="font-family: 'IM Fell English', serif;font-weight: 400; font-style: normal;margin-top: 10px; font-size: 30px; font-weight: 300;margin-left: 45px;">
+                Welcome to Aniket Courses</div>
+        </div>
+        <div id="website-page">
+            
         </div>
     </body>
 </html>

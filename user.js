@@ -8,7 +8,7 @@ const jwt =require('jsonwebtoken')
 const {usermodel, coursemodel} = require('./db')
 const {purchasemodel} = require("./db")
 const {auth} = require('./auth')
-const JWT_USER_SECRET = require('./config')
+const JWT_USER_SECRET = "hellohello"
 
 userRouter.post("/signup",async function(req,res){
     let name = req.body.name;
@@ -53,21 +53,30 @@ userRouter.post("/signin",async function(req,res){
     let founduser = await usermodel.findOne({
         "email": email
     })
-    let verification = bcrypt.compare(password,founduser.password)
-    if(verification){
-        let token = jwt.sign({
-            id: founduser._id
-        },JWT_USER_SECRET)
-        localStorage.setItem("token",token)
-        res.json({
-            token: token
-        })
-    }
+    if(founduser){
+        console.log("User Found.")
+        let verification = bcrypt.compare(password,founduser.password)
+        if(verification){
+            let token = jwt.sign({
+                id: founduser._id
+                },JWT_USER_SECRET)
+            res.json({
+                token: token,
+                message: "Done"
+            })
+        }
+        else{
+            res.json({
+                message: "Wrong password."
+            })
+        }
+        }
     else{
-        return res.json({
-            message: "Wrong password."
+        res.json({
+            message:"Invalid Email."
         })
     }
+    
 })
 
 userRouter.post("/purchase",auth,async function(req,res){

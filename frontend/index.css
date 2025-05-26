@@ -4,23 +4,62 @@
 }
 
 body{
-   background-color: black; 
+   background-color: #f2f4f7; 
    height: auto;
    scroll-behavior: smooth;
 }
 
 #signin-box{
-    color: white;
-    background-color: #3d3d3d;
+    background-color: white;
     height: 350px;
-    width: 600px;
+    width: 450px;
     border-radius: 20px;
-    margin-left: 450px;
+    margin-left: 525px;
+    box-shadow: inset;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.393);
     margin-top: 200px;
 }
 
-.signin-button{
-    width: 298px;  
+#buttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.choose-button{
+    margin-top: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    background-color: #0866ff;
+    width: 210px;  
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inputs{
     height: 40px;
-    border-radius: 20px;
+    width: 400px;
+    font-size: 20px;
+    color: #1d2129;
+    margin-left: 15px;
+    margin-top: 8px;
+    padding-left: 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc
+}
+
+.signin-button{
+    margin-top: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    background-color: #42b72a;
+    width: 210px;  
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
 }

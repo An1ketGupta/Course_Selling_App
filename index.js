@@ -6,12 +6,16 @@ const {userRouter} = require('./user')
 const {courseRouter} = require('./course')
 const {adminrouter} = require('./admin')
 const mongoose = require('mongoose')
-
+const {MONGO_URL} = require('./config')
+const cors = require('cors')
+app.use(cors())
 app.use("/user",userRouter)
 app.use("/course",courseRouter)
 app.use("/admin",adminrouter)
 
 async function main(){
-    await mongoose.connect(process.env.MONGO_URL)
+    await mongoose.connect(MONGO_URL)
     app.listen(3000)
 }
+
+main()

@@ -5,7 +5,7 @@ const { adminmodel, coursemodel } = require('./db');
 const adminrouter = Router()
 const jwt = require("jsonwebtoken")
 adminrouter.use(express.json())
-const JWT_SECRET = require('./config')
+const JWT_ADMIN_SECRET = "hellohello"
 const bcrypt = require('bcrypt');
 const {auth} = require('./auth');
 
@@ -42,6 +42,7 @@ adminrouter.post("/signup",async function(req,res){
     res.json({
         message: "You are signed up."
     })
+    alert(resonse.data.message)
 })
 
 adminrouter.post("/signin",async function(req,res){
@@ -51,18 +52,26 @@ adminrouter.post("/signin",async function(req,res){
     let founduser = await adminmodel.findOne({
         "email": email
     })
-    let verification = await bcrypt.compare(password,founduser.password)
-    if(verification){
+    if(founduser){
+        let verification = bcrypt.compare(password,founduser.password)
+        if(verification){
         let token = jwt.sign({
             id: founduser._id
-        },JWT_SECRET)
+        },JWT_ADMIN_SECRET)
         res.json({
-            token: token
+            token: token,
+            message: "Done"
         })
-    }
+        }
+        else{
+            res.json({
+                message: "Wrong password."
+            })
+        }
+        }
     else{
-        return res.json({
-            message: "Wrong password."
+        res.json({
+            message:"Invalid Email."
         })
     }
 })
